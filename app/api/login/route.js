@@ -43,10 +43,6 @@ export async function POST(req) {
       status: "success",
       token: token,
     });
-    res.cookies.set("token", token, {
-      httpOnly: true,
-      maxAge: 3600,
-    });
     return res;
   } catch (error) {
     return NextResponse.json(

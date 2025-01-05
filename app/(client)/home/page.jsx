@@ -4,8 +4,9 @@ import { useAuth } from "@/app/context/AuthContext";
 import React from "react";
 
 export default function page() {
-  const { Text, user, isAuth } = useAuth();
+  const { Text, user, isAuth, logout } = useAuth();
   console.log("data", user);
+  console.log("auth", isAuth);
   if (!isAuth) {
     return (
       <>
@@ -16,7 +17,10 @@ export default function page() {
 
   return (
     <div>
-      This is a home page where both auth and non auth user can access {user}
+      <button onClick={logout}>Logout</button>
+      <hr />
+      This is a home page where both auth and non auth user can access{" "}
+      {JSON.stringify(user)}
     </div>
   );
 }
